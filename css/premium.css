@@ -318,6 +318,7 @@ body {
 .svc-icon--ssp { background: rgba(201, 164, 60, 0.15); color: var(--gold); border: 1px solid rgba(201, 164, 60, 0.35); }
 .svc-icon--dmp { background: rgba(59, 130, 246, 0.12); color: var(--electric); border: 1px solid rgba(59, 130, 246, 0.25); }
 .svc-icon--rtb { background: rgba(38, 198, 178, 0.12); color: #14b8a6; border: 1px solid rgba(38, 198, 178, 0.25); }
+.svc-icon--fraud { background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
 .svc-icon--ai { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.25); }
 .svc-icon--net { background: rgba(201, 164, 60, 0.12); color: var(--gold); border: 1px solid rgba(201, 164, 60, 0.3); }
 
