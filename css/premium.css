@@ -321,6 +321,37 @@ body {
 .svc-icon--ai { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.25); }
 .svc-icon--net { background: rgba(201, 164, 60, 0.12); color: var(--gold); border: 1px solid rgba(201, 164, 60, 0.3); }
 
+/* Full-width “build your own” card under DSP / SSP / DMP headings */
+.service-card--own-build {
+  grid-column: 1 / -1;
+  padding: 1.5rem 1.75rem 1.6rem;
+  border-color: rgba(201, 164, 60, 0.4) !important;
+  background: linear-gradient(135deg, #153050 0%, #0a1628 50%, #071220 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 4px 0 0 var(--gold),
+    0 14px 32px rgba(5, 12, 26, 0.32) !important;
+}
+.service-card--own-build .own-build-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.service-card--own-build h4 {
+  font-size: 1.2rem !important;
+  margin-bottom: 0.65rem;
+}
+.service-card--own-build p {
+  font-size: 0.95rem !important;
+  line-height: 1.65;
+  max-width: 52rem;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
 .service-category h3 {
   display: flex;
   align-items: center;

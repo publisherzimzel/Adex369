@@ -88,7 +88,7 @@
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');
       const orig = btn.textContent;
-      btn.textContent = 'Request Sent — We\'ll Contact You Shortly';
+      btn.textContent = 'Request Sent. We\'ll Contact You Shortly';
       btn.disabled = true;
       setTimeout(() => {
         btn.textContent = orig;
