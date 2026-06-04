@@ -2,6 +2,8 @@
  * ADEX369 — Main interactions
  */
 (function () {
+  document.documentElement.classList.add('js');
+
   const nav = document.querySelector('.nav');
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
@@ -30,17 +32,29 @@
 
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const markVisible = (el) => el.classList.add('visible');
+
   const revealObs = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
+        if (e.isIntersecting) markVisible(e.target);
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.02, rootMargin: '0px 0px 0px 0px' }
   );
-  revealEls.forEach((el) => revealObs.observe(el));
+
+  revealEls.forEach((el) => {
+    revealObs.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      markVisible(el);
+    }
+  });
+
+  // Fallback: never leave large grids hidden if observer misses
+  window.setTimeout(() => {
+    revealEls.forEach(markVisible);
+  }, 1200);
 
   // Counter animation
   document.querySelectorAll('[data-count]').forEach((el) => {

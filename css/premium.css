@@ -267,18 +267,53 @@ body {
     0 8px 24px rgba(38, 198, 178, 0.15);
 }
 
-.section-dark .glass-card {
+.section-dark .glass-card:not(.service-card):not(.industry-card) {
   background: #0f1d32;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   box-shadow: none;
   backdrop-filter: none;
 }
-.section-dark .glass-card:hover {
+.section-dark .glass-card:not(.service-card):not(.industry-card):hover {
   background: #12243d;
   border-color: rgba(38, 198, 178, 0.25);
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Service cards on dark sections (e.g. Partnerships) — same deep blue as light sections */
+.section-dark .service-card,
+.section-dark .industry-card {
+  background: linear-gradient(160deg, #122a4a 0%, #0a1628 55%, #071018 100%);
+  border: 1px solid rgba(38, 198, 178, 0.22);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 12px 28px rgba(5, 12, 26, 0.28),
+    0 4px 10px rgba(5, 12, 26, 0.18);
+}
+.section-dark .service-card:hover,
+.section-dark .industry-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 164, 60, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 22px 48px rgba(5, 12, 26, 0.38),
+    0 8px 24px rgba(38, 198, 178, 0.15);
+}
+.section-dark .service-card h4,
+.section-dark .industry-card h4 {
+  color: #ffffff;
+}
+.section-dark .service-card p,
+.section-dark .industry-card p {
+  color: rgba(255, 255, 255, 0.68);
+}
+.section-dark .service-tags span {
+  background: rgba(38, 198, 178, 0.12);
+  color: #5eead4;
+  border: 1px solid rgba(38, 198, 178, 0.28);
+  font-weight: 600;
 }
 
 /* Service & industry card text on deep blue */
@@ -646,14 +681,6 @@ main {
   border-color: #d1dae6;
   color: var(--navy-deep);
 }
-.section-dark .service-card h4,
-.section-dark .service-card p {
-  color: var(--text);
-}
-.section-dark .service-card p {
-  color: var(--text-muted);
-}
-
 /* Service tags on white */
 .section-light .service-tags span,
 .section-light-alt .service-tags span {
