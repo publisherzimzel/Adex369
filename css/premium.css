@@ -1,0 +1,660 @@
+/**
+ * ADEX369 — Premium enterprise layer (WordPress-grade polish)
+ * Palette: deep blue, turquoise, gold + white accents
+ */
+
+:root {
+  --navy: #0a1628;
+  --navy-deep: #050c1a;
+  --white: #ffffff;
+  --white-soft: #f4f7fb;
+  --white-muted: #e8eef5;
+  --slate: #475569;
+  --slate-dark: #1e293b;
+  --shadow-sm: 0 1px 3px rgba(10, 22, 40, 0.06);
+  --shadow-md: 0 8px 30px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 20px 50px rgba(10, 22, 40, 0.12);
+  --shadow-premium: 0 25px 60px rgba(10, 22, 40, 0.15);
+  --radius-xl: 24px;
+}
+
+/* Site base — light professional canvas */
+body {
+  background: var(--white-soft);
+  color: var(--slate-dark);
+}
+
+/* Decorative bg only on dark hero */
+.bg-mesh,
+.grid-overlay {
+  display: none;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 0%, rgba(38, 198, 178, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 95% 30%, rgba(201, 164, 60, 0.08), transparent 50%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(59, 130, 246, 0.1), transparent),
+    linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 45%, #0d2137 100%);
+  pointer-events: none;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 40% 30%, black, transparent 72%);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 2.5rem;
+}
+
+/* Solid navbar — premium override */
+.nav {
+  background: #0a1628 !important;
+  border-bottom: 1px solid rgba(201, 164, 60, 0.28) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 32px rgba(5, 12, 26, 0.35) !important;
+}
+.nav::before {
+  display: none !important;
+}
+
+/* Section rhythm — clean white / blue alternation */
+.section {
+  padding: 6rem 0;
+}
+
+.section-dark {
+  background: #0a1628;
+  color: #e8edf5;
+  position: relative;
+  z-index: 1;
+}
+
+.section-light {
+  background: #ffffff;
+  color: #1e293b;
+  position: relative;
+  z-index: 1;
+  border-top: none;
+  box-shadow: none;
+}
+
+.section-light-alt {
+  background: #f8fafc;
+  color: #1e293b;
+  position: relative;
+  z-index: 1;
+  border-top: none;
+  box-shadow: none;
+}
+
+.section-light .section-label,
+.section-light-alt .section-label {
+  color: var(--cyan);
+}
+.section-light .section-label::before,
+.section-light-alt .section-label::before {
+  background: linear-gradient(90deg, var(--gold), var(--cyan));
+}
+
+.section-light .section-title,
+.section-light-alt .section-title {
+  color: #0a1628;
+  background: none;
+  -webkit-text-fill-color: unset;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-light .section-desc,
+.section-light-alt .section-desc {
+  color: #64748b;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.section-dark .section-title {
+  color: #ffffff;
+  background: none;
+  -webkit-text-fill-color: unset;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-dark .section-desc {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.section-dark .section-label {
+  color: #26c6b2;
+}
+
+/* Centered section headers */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4rem;
+}
+.section-header .section-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero — full dark block, content contained (no wave overlap) */
+.hero.section-dark {
+  background: #050c1a;
+  min-height: calc(100vh - var(--nav-bar-h));
+  min-height: calc(100dvh - var(--nav-bar-h));
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-bar-h) + 2.5rem) 0 4.5rem;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.hero .container {
+  padding-bottom: 0;
+}
+.hero-viz {
+  overflow: hidden;
+  min-height: 420px;
+}
+.hero .float-card {
+  background: rgba(10, 22, 40, 0.95);
+  border: 1px solid rgba(38, 198, 178, 0.28);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+.hero .float-card strong {
+  color: #26c6b2;
+}
+.hero .float-card span {
+  color: rgba(255, 255, 255, 0.55);
+}
+.hero .float-card:nth-child(1) { top: 8px; right: 0; }
+.hero .float-card:nth-child(2) { bottom: auto; top: 42%; left: 0; }
+.hero .float-card:nth-child(3) { bottom: 24px; right: 12px; left: auto; }
+
+/* Trust strip — clean break below hero */
+.trust-strip {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 2.5rem 0;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+.trust-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 3.5rem;
+}
+.trust-strip-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+.trust-logo {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+.trust-logo:hover {
+  color: #0a1628;
+}
+
+/* Cards on light sections — default white */
+.section-light .glass-card,
+.section-light-alt .glass-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  backdrop-filter: none;
+  padding: 2rem;
+}
+.section-light .glass-card:hover,
+.section-light-alt .glass-card:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Service & industry cards — deep blue 3D */
+.section-light .service-card,
+.section-light-alt .service-card,
+.section-light .industry-card,
+.section-light-alt .industry-card {
+  background: linear-gradient(160deg, #122a4a 0%, #0a1628 55%, #071018 100%);
+  border: 1px solid rgba(38, 198, 178, 0.22);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 12px 28px rgba(5, 12, 26, 0.28),
+    0 4px 10px rgba(5, 12, 26, 0.18);
+  transform: translateY(0);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.section-light .service-card:hover,
+.section-light-alt .service-card:hover,
+.section-light .industry-card:hover,
+.section-light-alt .industry-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 164, 60, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 22px 48px rgba(5, 12, 26, 0.38),
+    0 8px 24px rgba(38, 198, 178, 0.15);
+}
+
+.section-dark .glass-card {
+  background: #0f1d32;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.section-dark .glass-card:hover {
+  background: #12243d;
+  border-color: rgba(38, 198, 178, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Service & industry card text on deep blue */
+.section-light .service-card h4,
+.section-light-alt .service-card h4,
+.section-light .industry-card h4,
+.section-light-alt .industry-card h4 {
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+.section-light .service-card p,
+.section-light-alt .service-card p {
+  color: rgba(255, 255, 255, 0.68);
+}
+.section-light .industry-icon {
+  background: rgba(38, 198, 178, 0.14);
+  border: 1px solid rgba(38, 198, 178, 0.35);
+  color: #26c6b2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Professional icons (no emoji) */
+.svc-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.svc-icon--dsp { background: rgba(38, 198, 178, 0.15); color: var(--cyan); border: 1px solid rgba(38, 198, 178, 0.3); }
+.svc-icon--ssp { background: rgba(201, 164, 60, 0.15); color: var(--gold); border: 1px solid rgba(201, 164, 60, 0.35); }
+.svc-icon--dmp { background: rgba(59, 130, 246, 0.12); color: var(--electric); border: 1px solid rgba(59, 130, 246, 0.25); }
+.svc-icon--rtb { background: rgba(38, 198, 178, 0.12); color: #14b8a6; border: 1px solid rgba(38, 198, 178, 0.25); }
+.svc-icon--ai { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.25); }
+.svc-icon--net { background: rgba(201, 164, 60, 0.12); color: var(--gold); border: 1px solid rgba(201, 164, 60, 0.3); }
+
+.service-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--navy-deep);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--white-muted);
+  margin-bottom: 0.5rem;
+}
+.trust-card .svc-icon {
+  margin-bottom: 0.75rem;
+}
+.section-dark .trust-card h4,
+.section-dark .trust-card p {
+  color: var(--text);
+}
+.section-dark .trust-card p {
+  color: var(--text-muted);
+}
+.section-dark .service-category h3 {
+  color: var(--white);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.35rem, 5.2vw, 3.5rem);
+  letter-spacing: -0.03em;
+}
+.hero h1 .gradient {
+  background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 40%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(38, 198, 178, 0.35);
+  color: #5eead4;
+}
+.hero-stats {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+.hero-stat strong {
+  color: var(--white);
+}
+.hero-stat strong::after {
+  content: '';
+}
+.hero-stat span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--white) !important;
+}
+
+.section-light .btn-secondary,
+.section-light-alt .btn-secondary {
+  background: var(--white);
+  color: var(--navy-deep) !important;
+  border: 1px solid var(--white-muted);
+  box-shadow: var(--shadow-sm);
+}
+.section-light .btn-secondary:hover,
+.section-light-alt .btn-secondary:hover {
+  border-color: var(--cyan);
+  color: var(--navy-deep) !important;
+}
+
+/* Metrics on dark */
+.section-dark .metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.section-dark .metric-card p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Metrics on light — white cards with gold/cyan numbers */
+.section-light .metric-card,
+.section-light-alt .metric-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  border-top: 3px solid #c9a43c;
+}
+.section-dark .metric-card .value,
+.section-dark .metric-card .value span {
+  background: linear-gradient(135deg, #26c6b2, #c9a43c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-light .metric-card p,
+.section-light-alt .metric-card p {
+  color: var(--slate);
+}
+
+/* Industries — light grid */
+.industry-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.section-light .industry-card,
+.section-light-alt .industry-card {
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+}
+
+/* Testimonials — premium white cards */
+.section-light-alt .testimonial-card {
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+}
+.section-light-alt .testimonial-card blockquote {
+  color: var(--slate);
+}
+.section-light-alt .author-avatar {
+  background: linear-gradient(135deg, var(--navy), var(--cyan));
+}
+
+/* FAQ on white */
+.section-light .faq-item,
+.section-light-alt .faq-item {
+  border-bottom-color: #e2e8f0;
+}
+.section-light .faq-question,
+.section-light-alt .faq-question {
+  color: #0a1628 !important;
+}
+.section-light .faq-answer p,
+.section-light-alt .faq-answer p {
+  color: #475569 !important;
+}
+.section-light-alt .section-title,
+.section-light .section-title {
+  color: #0a1628;
+}
+
+.cta-band {
+  background: #0a1628;
+  padding: 5.5rem 0;
+  border-top: 3px solid #c9a43c;
+}
+.cta-band .section-title {
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+.cta-band .section-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Footer — deep navy professional */
+.footer {
+  background: var(--navy-deep);
+  border-top: 3px solid var(--gold);
+  margin-top: 0;
+}
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer h4 {
+  color: rgba(255, 255, 255, 0.45);
+}
+.footer ul a {
+  color: rgba(255, 255, 255, 0.65);
+}
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+.footer-bottom span {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.page-hero {
+  background: #0a1628;
+  padding: calc(var(--nav-bar-h) + 3.5rem) 0 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.page-hero h1 {
+  color: var(--white);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+.page-hero p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+main {
+  padding-top: 0;
+}
+
+/* Dashboard panel premium */
+.hero .dashboard-panel {
+  background: rgba(10, 22, 40, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  animation: none;
+}
+.hero .dashboard-title {
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+/* Blog cards light */
+.section-light-alt .blog-card {
+  overflow: hidden;
+}
+.section-light-alt .blog-body h3 a {
+  color: var(--navy-deep);
+}
+.section-light-alt .blog-body h3 a:hover {
+  color: var(--cyan);
+}
+
+.ai-section {
+  background: #0a1628 !important;
+}
+
+/* Process on light */
+.section-light-alt .process-step .step-num {
+  background: var(--white);
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: var(--shadow-md);
+}
+.section-light-alt .process-step h4 {
+  color: var(--navy-deep);
+}
+.section-light-alt .process-step p {
+  color: var(--slate);
+}
+.section-light-alt .process-timeline::before {
+  opacity: 0.25;
+}
+
+/* Container WP standard */
+.container {
+  width: min(1140px, 92vw);
+}
+
+.booking-note h4 {
+  color: #0a1628;
+  margin-bottom: 0.5rem;
+}
+.booking-note p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Contact & inner pages on white */
+.section-light .glass-card:not(.service-card):not(.industry-card) h4,
+.section-light-alt .glass-card:not(.service-card):not(.industry-card) h4 {
+  color: var(--navy-deep);
+}
+.section-light .form-group label,
+.section-light-alt .form-group label {
+  color: var(--slate);
+}
+.section-light .form-group input,
+.section-light .form-group select,
+.section-light .form-group textarea,
+.section-light-alt .form-group input,
+.section-light-alt .form-group select,
+.section-light-alt .form-group textarea {
+  background: var(--white-soft);
+  border-color: #d1dae6;
+  color: var(--navy-deep);
+}
+.section-dark .service-card h4,
+.section-dark .service-card p {
+  color: var(--text);
+}
+.section-dark .service-card p {
+  color: var(--text-muted);
+}
+
+/* Service tags on white */
+.section-light .service-tags span,
+.section-light-alt .service-tags span {
+  background: rgba(38, 198, 178, 0.12);
+  color: #5eead4;
+  border: 1px solid rgba(38, 198, 178, 0.28);
+  font-weight: 600;
+}
+
+/* Clean section joins — no gradient bars or heavy shadows */
+.section-light + .section-dark,
+.section-light-alt + .section-dark {
+  border-top: 2px solid rgba(201, 164, 60, 0.35);
+}
+.section-dark + .section-light,
+.section-dark + .section-light-alt {
+  border-top: none;
+  box-shadow: none;
+}
+.section-light::before,
+.section-light-alt::before,
+.section-dark::before,
+.section-light + .section-dark::before,
+.section-light-alt + .section-dark::before,
+.section-dark + .section-light::before,
+.section-dark + .section-light-alt::before {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 768px) {
+  .trust-strip-inner { gap: 1.25rem 2rem; }
+  .trust-logo { font-size: 0.8rem; }
+  .section { padding: 4rem 0; }
+}
