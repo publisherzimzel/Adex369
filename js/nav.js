@@ -19,6 +19,19 @@
   let scrollDirection = 'up';
   let ticking = false;
 
+  function normalizePath(pathname) {
+    if (!pathname || pathname === '/') return '/';
+    const path = pathname.split('#')[0].replace(/\/$/, '');
+    if (!path) return '/';
+    if (path.endsWith('.html')) {
+      const slug = path.slice(0, -5);
+      return slug || '/';
+    }
+    return path.startsWith('/') ? path : `/${path}`;
+  }
+
+  const cleanPath = normalizePath(window.location.pathname);
+
   if (heroEl) {
     nav.classList.add('nav--dual');
     document.body.classList.add('has-hero-nav');
@@ -72,17 +85,15 @@
   setNavState();
   window.addEventListener('nav:recheck', setNavState);
 
-  /* Page-based active link (non-home or fallback) */
-  const path = window.location.pathname.split('/').pop() || 'index.html';
   const pageMap = {
-    'index.html': 'home',
-    'services.html': 'services',
-    'about.html': 'about',
-    'blog.html': 'blog',
-    'contact.html': 'contact',
-    'meeting.html': 'contact'
+    '/': 'home',
+    '/services': 'services',
+    '/about': 'about',
+    '/blog': 'blog',
+    '/contact': 'contact',
+    '/meeting': 'contact'
   };
-  const currentPage = pageMap[path] || '';
+  const currentPage = pageMap[cleanPath] || '';
 
   function setActiveLink(section) {
     nav.querySelectorAll('.nav-links a').forEach((a) => {
@@ -94,8 +105,8 @@
   if (!isHome) {
     nav.querySelectorAll('.nav-links a').forEach((a) => {
       const href = a.getAttribute('href') || '';
-      const file = href.split('#')[0];
-      if (file === path || (path === '' && file === 'index.html') || (file && file.endsWith(path))) {
+      const linkPath = normalizePath(href.split('#')[0]);
+      if (linkPath === cleanPath) {
         a.classList.add('active');
       } else if (a.dataset.navSection === currentPage) {
         a.classList.add('active');
@@ -103,7 +114,6 @@
     });
   }
 
-  /* Homepage section spy via IntersectionObserver */
   if (isHome && sectionIds.length) {
     const sections = sectionIds
       .map((id) => document.getElementById(id === 'contact' ? 'contact-cta' : id))
