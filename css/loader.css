@@ -1,0 +1,104 @@
+/* ADEX369 — Page load animation (spinning rings around logo emblem) */
+html.is-loading {
+  overflow: hidden;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0f;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+.page-loader.is-exiting {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(38, 198, 178, 0.08), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(201, 164, 60, 0.04), transparent 45%);
+  pointer-events: none;
+}
+
+.page-loader__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-mark {
+  position: relative;
+  width: min(200px, 48vw);
+  height: min(200px, 48vw);
+  filter: drop-shadow(0 0 28px rgba(38, 198, 178, 0.22));
+}
+
+.loader-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.loader-ring {
+  transform-origin: 100px 100px;
+}
+
+.loader-ring--outer {
+  animation: loader-spin 2.6s linear infinite;
+}
+
+.loader-ring--mid {
+  animation: loader-spin-rev 2s linear infinite;
+}
+
+.loader-ring--inner {
+  animation: loader-spin 3.2s linear infinite;
+}
+
+.loader-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes loader-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loader-spin-rev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    display: none !important;
+  }
+
+  html.is-loading {
+    overflow: auto;
+  }
+}

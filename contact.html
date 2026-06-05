@@ -8,20 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/logo.png?v=6">
-  <link rel="stylesheet" href="css/styles.css?v=18">
-  <link rel="stylesheet" href="css/premium.css?v=18">
-  <link rel="stylesheet" href="css/animations.css">
+  <link rel="icon" type="image/png" href="assets/logo.png?v=8">
+  <link rel="stylesheet" href="css/styles.css?v=23">
+  <link rel="stylesheet" href="css/premium.css?v=23">
+  <link rel="stylesheet" href="css/animations.css?v=22">
+  <link rel="stylesheet" href="css/loader.css?v=26">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
+  <script src="js/loader.js?v=26"></script>
 
   <header class="nav"><div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="ADEX369 Home"><img src="assets/logo.png?v=8" alt="ADEX369" width="68" height="68"></a>
+    <a href="index.html" class="nav-logo" aria-label="ADEX369 Home"><img class="logo-full" src="assets/logo-full.png?v=2" alt="ADEX369" width="200" height="48"></a>
     <div class="nav-right">
       <nav class="nav-links">
         <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html" class="active">Contact</a>
       </nav>
-      <a href="contact.html" class="nav-cta">Book Consultation</a>
+      <a href="meeting.html" class="nav-cta">Book Consultation</a>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div></header>
@@ -30,38 +33,52 @@
     <section class="page-hero">
       <div class="container reveal">
         <span class="section-label" style="justify-content:center">Get in Touch</span>
-        <h1>Schedule Your AdTech Growth Consultation</h1>
-        <p>Tell us about your programmatic goals. Our AdTech architects will respond within 24 hours with a tailored consultation plan.</p>
+        <h1>Contact ADEX369</h1>
+        <p>Book a live meeting or send your project details. Our AdTech architects respond within one business day.</p>
       </div>
     </section>
 
     <section class="section section-light">
-      <div class="container contact-grid">
-        <div class="reveal">
+      <div class="container meeting-grid reveal">
+        <div class="meeting-info">
           <h2 class="section-title" style="font-size:1.75rem">Let's Build Your Programmatic Future</h2>
-          <p style="color:var(--text-muted);margin-bottom:2rem">Whether you're launching a white-label DSP, building your own DSP, SSP, or DMP with source code ownership, optimizing yield, or integrating AI into your bidstream, we're ready to engineer your growth.</p>
+          <p style="color:var(--text-muted);margin-bottom:1.5rem">Whether you're launching a white-label DSP, building your own DSP, SSP, or DMP with source code ownership, optimizing yield, or integrating AI into your bidstream, we're ready to engineer your growth.</p>
 
-          <div class="glass-card" style="margin-bottom:1.5rem">
-            <h4 style="margin-bottom:0.5rem">📧 Email</h4>
+          <ul class="meeting-benefits">
+            <li>Schedule a consultation with our team</li>
+            <li>Explore your stack with a live demonstration</li>
+            <li>Discuss custom builds and source code delivery</li>
+          </ul>
+
+          <div class="glass-card" style="margin-bottom:1rem">
+            <h4 style="margin-bottom:0.5rem">Email</h4>
             <a href="mailto:consulting@adex369.com">consulting@adex369.com</a>
           </div>
-          <div class="glass-card" style="margin-bottom:1.5rem">
-            <h4 style="margin-bottom:0.5rem">💬 WhatsApp</h4>
+          <div class="glass-card" style="margin-bottom:1rem">
+            <h4 style="margin-bottom:0.5rem">WhatsApp</h4>
             <a href="https://wa.me/1234567890" target="_blank" rel="noopener">+1 (234) 567-890</a>
           </div>
           <div class="glass-card">
-            <h4 style="margin-bottom:0.5rem">🔗 LinkedIn</h4>
+            <h4 style="margin-bottom:0.5rem">LinkedIn</h4>
             <a href="https://linkedin.com/company/adex369" target="_blank" rel="noopener">linkedin.com/company/adex369</a>
           </div>
 
-          <div class="glass-card booking-note" style="margin-top:1.5rem">
-            <h4>Schedule a Consultation</h4>
-            <p>Complete the form on this page and our AdTech team will confirm your discovery call within one business day.</p>
-            <a href="#contact-form" class="btn btn-primary" style="margin-top:1rem;display:inline-flex">Go to Consultation Form</a>
-          </div>
+          <p class="meeting-note" style="margin-top:1.5rem">AdTech expert? <a href="experts.html">Apply to join our expert member network</a>.</p>
         </div>
 
-        <form id="contact-form" class="glass-card reveal" style="padding:2rem" aria-label="Consultation request form">
+        <div class="calendly-panel glass-card">
+          <h3>Schedule a Meeting</h3>
+          <p>Pick a time for your personalized AdTech consultation, just like our <a href="meeting.html">dedicated meeting page</a>.</p>
+          <div id="calendly-embed" class="calendly-inline-widget" data-url="https://calendly.com/adex369/consultation" style="min-width:280px;height:650px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light-alt">
+      <div class="container">
+        <h2 class="section-title reveal" style="text-align:center;font-size:1.75rem">Or Send Project Details</h2>
+        <p class="section-desc reveal" style="text-align:center;margin:0 auto 2rem">Prefer to describe your project first? Complete the form below.</p>
+        <form id="contact-form" class="glass-card reveal" style="padding:2rem;max-width:720px;margin:0 auto" aria-label="Consultation request form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name *</label>
@@ -95,26 +112,12 @@
               <option>SSP Consulting</option>
               <option>DMP & Data Solutions</option>
               <option>RTB Infrastructure</option>
+              <option>Ad Fraud Solutions</option>
               <option>White-Label DSP/SSP Setup</option>
               <option>Custom DSP/SSP/DMP Build (Source Code)</option>
               <option>AI Integration for AdTech</option>
               <option>Demand & Supply Partnerships</option>
-              <option>Ad Operations Consulting</option>
-              <option>Monetization Strategy</option>
               <option>Full Programmatic Business Setup</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="ad-spend">Monthly Ad Spend (USD)</label>
-            <select id="ad-spend" name="ad-spend">
-              <option value="">Select range</option>
-              <option>Under $10K</option>
-              <option>$10K – $50K</option>
-              <option>$50K – $250K</option>
-              <option>$250K – $1M</option>
-              <option>$1M – $5M</option>
-              <option>$5M+</option>
-              <option>Not applicable / Pre-launch</option>
             </select>
           </div>
           <div class="form-row">
@@ -131,12 +134,12 @@
             <label for="message">Project Details</label>
             <textarea id="message" name="message" placeholder="Describe your AdTech goals, current stack, and timeline..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%">Schedule Your AdTech Growth Consultation</button>
+          <button type="submit" class="btn btn-primary" style="width:100%">Send Consultation Request</button>
         </form>
       </div>
     </section>
 
-    <section class="section section-light-alt" id="faq">
+    <section class="section section-light" id="faq">
       <div class="container">
         <h2 class="section-title reveal" style="text-align:center;font-size:1.75rem;color:#0a1628">Before You Reach Out</h2>
         <div class="faq-list reveal">
@@ -149,6 +152,11 @@
 
   <footer class="footer"><div class="container"><div class="footer-bottom" style="border:none"><span>© 2026 ADEX369</span></div></div></footer>
   <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-  <script src="js/main.js?v=18" defer></script>
+
+  <script src="js/config.js?v=22"></script>
+  <script src="js/nav.js?v=22" defer></script>
+  <script src="js/main.js?v=22" defer></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script src="js/calendly.js?v=22" defer></script>
 </body>
 </html>

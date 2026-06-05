@@ -14,25 +14,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/logo.png?v=8">
-  <link rel="stylesheet" href="css/styles.css?v=18">
-  <link rel="stylesheet" href="css/premium.css?v=18">
-  <link rel="stylesheet" href="css/animations.css?v=18">
+  <link rel="stylesheet" href="css/styles.css?v=23">
+  <link rel="stylesheet" href="css/premium.css?v=23">
+  <link rel="stylesheet" href="css/animations.css?v=22">
+  <link rel="stylesheet" href="css/loader.css?v=26">
 </head>
-<body>
+<body class="page-home">
+  <script src="js/loader.js?v=26"></script>
   <header class="nav" role="banner">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="ADEX369 Home">
-        <img src="assets/logo.png?v=8" alt="ADEX369" width="68" height="68">
+        <img class="logo-full" src="assets/logo-full.png?v=2" alt="ADEX369" width="200" height="48">
       </a>
       <div class="nav-right">
         <nav class="nav-links" role="navigation">
-          <a href="index.html" class="active">Home</a>
-          <a href="services.html">Services</a>
-          <a href="about.html">About</a>
+          <a href="#hero" data-nav-section="hero">Home</a>
+          <a href="#services" data-nav-section="services">Services</a>
+          <a href="#about" data-nav-section="about">About</a>
           <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a href="#contact-cta" data-nav-section="contact">Contact</a>
         </nav>
-        <a href="contact.html" class="nav-cta">Book Consultation</a>
+        <a href="meeting.html" class="nav-cta">Book Consultation</a>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -50,7 +52,7 @@
           <h1>Build, Scale &amp; Optimize Your <span class="gradient">Programmatic Advertising</span> Business</h1>
           <p class="hero-sub">DSP, SSP, DMP &amp; RTB consulting, plus custom platform builds where we engineer your own solution and deliver full source code for your team to own and operate.</p>
           <div class="btn-group">
-            <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+            <a href="meeting.html" class="btn btn-primary">Book Consultation</a>
             <a href="services.html" class="btn btn-secondary">Explore Services</a>
           </div>
           <div class="hero-stats">
@@ -236,7 +238,7 @@
     </section>
 
     <!-- Why Choose -->
-    <section class="section section-dark" id="why">
+    <section class="section section-dark" id="about">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-label">Why ADEX369</span>
@@ -413,12 +415,25 @@
       </div>
     </section>
 
+    <!-- Expert Network -->
+    <section class="section section-light-alt" id="experts">
+      <div class="container section-header reveal">
+        <span class="section-label">Expert Network</span>
+        <h2 class="section-title">AdTech Experts: Join Our Member Network</h2>
+        <p class="section-desc">ADEX369 delivers large-scale programmatic projects worldwide. If you're a senior DSP, SSP, DMP, RTB, AI, or fraud specialist, apply to become a vetted expert member and collaborate on enterprise engagements.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:1.5rem">
+          <a href="experts.html" class="btn btn-primary">Apply as an Expert</a>
+          <a href="meeting.html" class="btn btn-secondary">Schedule a Client Meeting</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact CTA -->
     <section class="section cta-band" id="contact-cta">
       <div class="container section-header reveal">
         <h2 class="section-title">Ready to Scale Your Programmatic Business?</h2>
-        <p class="section-desc">Schedule a consultation with our AdTech architects. Launch smarter DSP &amp; SSP businesses with AI-powered growth.</p>
-        <a href="contact.html" class="btn btn-primary">Schedule Your AdTech Growth Consultation</a>
+        <p class="section-desc">Book a live consultation with our AdTech architects. Launch smarter DSP &amp; SSP businesses with AI-powered growth.</p>
+        <a href="meeting.html" class="btn btn-primary">Schedule Your AdTech Growth Consultation</a>
       </div>
     </section>
   </main>
@@ -427,7 +442,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="ADEX369 Home"><img src="assets/logo.png?v=8" alt="ADEX369" width="56" height="56"></a>
+          <a href="index.html" class="nav-logo" aria-label="ADEX369 Home"><img class="logo-full" src="assets/logo-full.png?v=2" alt="ADEX369" width="180" height="40"></a>
           <p>Engineering the future of programmatic advertising. Your AdTech infrastructure partner for DSP, SSP, DMP &amp; RTB excellence.</p>
           <form id="newsletter-form" class="newsletter-box" aria-label="Newsletter signup">
             <input type="email" placeholder="Email for AdTech insights" required aria-label="Email">
@@ -435,8 +450,8 @@
           </form>
         </div>
         <div><h4>Services</h4><ul><li><a href="services.html#dsp">DSP Consulting</a></li><li><a href="services.html#ssp">SSP Consulting</a></li><li><a href="services.html#dmp">DMP Solutions</a></li><li><a href="services.html#rtb">RTB Infrastructure</a></li><li><a href="services.html#fraud">Ad Fraud Solutions</a></li><li><a href="services.html#ai">AI Integration</a></li><li><a href="services.html#partnerships">Partnerships</a></li></ul></div>
-        <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-        <div><h4>Connect</h4><ul><li><a href="https://linkedin.com/company/adex369" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="contact.html">Book Consultation</a></li><li><a href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="experts.html">Expert Network</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+        <div><h4>Connect</h4><ul><li><a href="https://linkedin.com/company/adex369" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="meeting.html">Book Consultation</a></li><li><a href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 ADEX369. All rights reserved. Scaling RTB Ecosystems Globally.</span>
@@ -451,7 +466,8 @@
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.883 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-  <script src="js/main.js?v=18" defer></script>
+  <script src="js/nav.js?v=22" defer></script>
+  <script src="js/main.js?v=22" defer></script>
   <script src="js/rtb-viz.js" defer></script>
   <script src="js/charts.js" defer></script>
 </body>

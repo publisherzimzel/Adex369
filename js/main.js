@@ -15,20 +15,24 @@
     toggle.addEventListener('click', () => {
       links.classList.toggle('open');
       toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+      if (nav && links.classList.contains('open')) {
+        nav.classList.remove('nav--hidden');
+      } else {
+        window.dispatchEvent(new Event('nav:recheck'));
+      }
     });
     links.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => links.classList.remove('open'));
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        window.dispatchEvent(new Event('nav:recheck'));
+      });
     });
   }
 
-  // Active nav link
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach((a) => {
-    const href = a.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
-  });
+  // Active nav + scroll state handled by js/nav.js
 
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
@@ -109,6 +113,28 @@
         btn.disabled = false;
         form.reset();
       }, 4000);
+    });
+  }
+
+  // Expert membership application
+  const expertForm = document.getElementById('expert-form');
+  if (expertForm) {
+    expertForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const checked = expertForm.querySelectorAll('input[name="expertise"]:checked');
+      if (checked.length === 0) {
+        alert('Please select at least one area of expertise.');
+        return;
+      }
+      const btn = expertForm.querySelector('[type="submit"]');
+      const orig = btn.textContent;
+      btn.textContent = 'Application Received. We\'ll Be in Touch';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.disabled = false;
+        expertForm.reset();
+      }, 4500);
     });
   }
 

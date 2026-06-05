@@ -16,10 +16,12 @@
   --glass: rgba(15, 23, 42, 0.55);
   --radius: 14px;
   --radius-lg: 20px;
-  --logo-h: 68px;
-  --nav-bar-h: 84px;
-  --nav-h: 84px;
-  --nav-offset: var(--nav-bar-h);
+  --logo-h: 82px;
+  --nav-bar-h-hero: 112px;
+  --nav-bar-h-sticky: 80px;
+  --nav-bar-h: var(--nav-bar-h-sticky);
+  --nav-h: var(--nav-bar-h-sticky);
+  --nav-offset: var(--nav-bar-h-sticky);
   --font: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', var(--font);
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -101,20 +103,53 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-/* Navigation — solid enterprise bar */
+/* Navigation — dual state: hero overlay → sticky → hide on scroll down */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  height: var(--nav-bar-h);
+  height: var(--nav-bar-h-sticky);
   display: flex;
   align-items: center;
-  background: #0a1628;
-  border-bottom: 1px solid rgba(201, 164, 60, 0.22);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
   pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    background-color 0.35s ease,
+    transform 0.35s ease,
+    padding 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    height 0.35s ease,
+    backdrop-filter 0.35s ease;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+.nav--dual.nav--hero {
+  position: absolute;
+  height: var(--nav-bar-h-hero);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+.nav--dual.nav--sticky,
+.nav--sticky {
+  position: fixed;
+  height: var(--nav-bar-h-sticky);
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 164, 60, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+.nav--hidden {
+  transform: translateY(-100%);
 }
 .nav::before {
   display: none;
@@ -157,6 +192,18 @@ ul { list-style: none; }
   object-fit: contain;
   object-position: left center;
   -webkit-font-smoothing: antialiased;
+  transition: height 0.35s ease, max-height 0.35s ease, max-width 0.35s ease;
+}
+.nav--hero .nav-inner > .nav-logo img.logo-full {
+  height: 88px;
+  max-height: 88px;
+  max-width: min(400px, 68vw);
+}
+.nav--sticky .nav-inner > .nav-logo img.logo-full,
+.nav--scrolled:not(.nav--hero) .nav-inner > .nav-logo img.logo-full {
+  height: 64px;
+  max-height: 64px;
+  max-width: min(320px, 62vw);
 }
 .footer-brand .nav-logo {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
@@ -208,7 +255,12 @@ a.nav-cta {
   white-space: nowrap;
   border: 1px solid rgba(45, 212, 191, 0.5);
   box-shadow: 0 0 0 1px rgba(38, 198, 178, 0.25), 0 6px 28px rgba(38, 198, 178, 0.45);
-  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease, padding 0.35s ease, font-size 0.35s ease;
+}
+.nav--hero a.nav-cta {
+  padding: 0.75rem 1.45rem;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.35), 0 8px 32px rgba(38, 198, 178, 0.5);
 }
 a.nav-cta:hover {
   color: #030712 !important;
@@ -907,7 +959,10 @@ html.js .reveal.visible { opacity: 1; transform: translateY(0); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  :root { --nav-bar-h: 72px; --nav-h: 72px; --nav-offset: 72px; --logo-h: 56px; }
+  :root { --nav-bar-h-hero: 96px; --nav-bar-h-sticky: 72px; --nav-bar-h: 72px; --nav-h: 72px; --nav-offset: 72px; --logo-h: 64px; }
+  .nav--hidden { transform: translateY(0); }
+  .nav--hero .nav-inner > .nav-logo img.logo-full { height: 68px; max-height: 68px; }
+  .nav--sticky .nav-inner > .nav-logo img.logo-full { height: 52px; max-height: 52px; }
   .nav-right {
     flex-direction: row;
     align-items: center;
