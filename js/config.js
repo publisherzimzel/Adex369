@@ -4,8 +4,8 @@
 window.ADEX369_CONFIG = {
   siteUrl: 'https://adex369.com',
   siteName: 'ADEX369',
-  calendlyUrl: 'https://calendly.com/adex369/consultation',
-  email: 'consulting@adex369.com',
+  calendlyUrl: 'https://calendly.com/santhosh-adex369/30min',
+  email: 'santhosh@adex369.com',
   whatsappUrl: 'https://wa.me/919886464313',
   whatsappDisplay: '+91 9886464313',
   linkedIn: 'https://www.linkedin.com/company/adex369',

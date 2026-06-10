@@ -31,7 +31,7 @@ Then visit `http://localhost:8080`
 1. **WhatsApp** — Update `https://wa.me/1234567890` in all HTML files and the floating button
 2. **Calendly** — Replace placeholder on `index.html` and `contact.html` with your embed code
 3. **LinkedIn** — Update `linkedin.com/company/adex369` URLs
-4. **Email** — Change `consulting@adex369.com` on the contact page
+4. **Email** — Primary contact: `santhosh@adex369.com` (see `js/config.js`)
 5. **Contact form** — Wire to Formspree, Netlify Forms, or your backend API
 
 ## Structure
